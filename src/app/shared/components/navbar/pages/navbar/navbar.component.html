@@ -1,0 +1,23 @@
+<nav class="nav-container">
+  
+  <section class="menu-title-container">
+    <h3>Nelister</h3>
+    <span class="material-icons menu-icon">menu</span>
+  </section>
+  
+  <!-- General information maybe :D -->
+  <section class="search-container">
+    
+  </section>
+
+  <ng-container *ngFor="let button of buttons">
+    <navbar-button
+      [button]="button"
+    />
+  </ng-container>
+
+  <section class="profile-container">
+    <navbar-profile />
+  </section>
+
+</nav>

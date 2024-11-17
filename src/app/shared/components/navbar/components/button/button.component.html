@@ -1,0 +1,6 @@
+<section [routerLink]="button.route" class="buttons-container">
+  <div [class]="button.isActive ? 'button-container-selected' : 'button-container'">
+    <span class="material-icons">{{button.iconName}}</span>
+    <a  class="button">{{button.title}}</a>
+  </div>
+</section>

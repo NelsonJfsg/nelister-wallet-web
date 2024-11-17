@@ -1,0 +1,52 @@
+.button-container:hover{
+  background: #292B2D;
+  transition: background 0.3s ease-in-out;
+}
+
+.buttons-container{
+  width: 100%;
+  justify-content: center;
+  align-content: center;
+  display: flex;
+}
+
+.material-icons{
+  font-size: 20px;
+  color : white;
+  margin-left: 10px;
+}
+.button-container{
+  align-content: center;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  color: white;
+  width: 75%;
+  height: 50px;
+  border: none;
+  border-radius: 15px;
+  margin-top: 10px;
+}
+
+.button-container-selected{
+  align-content: center;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  color: white;
+  width: 75%;
+  height: 50px;
+  border: none;
+  border-radius: 15px;
+  margin-top: 10px;
+  background: #292B2D;
+}
+
+.button{
+  background: transparent;
+  border: none;
+  color : white;
+  font-size: 16px;
+  cursor: pointer;
+  margin-left: 10px;
+}
