@@ -44,7 +44,7 @@ h3{
 }
 @media (max-width: 960px) {
   .nav-container {
-    width: 30%;
+    width: 100%;
   }
 
   .button-container {

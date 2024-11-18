@@ -1,0 +1,70 @@
+<section class="main-container">
+
+  <section class="header-container">
+    <button (click)="handleBackAction()" class="back-button">
+      <mat-icon>arrow_back</mat-icon>
+    </button>
+    <h4>Nueva entidad</h4>
+  </section>
+
+  <form class="form-container" [formGroup]="entityForm">
+
+    <p>Entidad</p>
+    <mat-form-field appearance="outline">
+      <mat-select formControlName="entity">
+        <mat-option *ngFor="let option of entityOptions" [value]="option.id">
+          {{ option.title }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <p>{{entityForm.get('entity')?.value == 3 ? 'Nombre' : 'Titulo'}}</p>
+    <mat-form-field appearance="outline">
+      <mat-label>Titulo</mat-label>
+      <input formControlName="title" matInput placeholder="Titulo">
+    </mat-form-field>
+
+    <p>Descripcion</p>
+    <mat-form-field appearance="outline">
+      <mat-label>Descripcion</mat-label>
+      <input formControlName="description" matInput placeholder="Titulo">
+    </mat-form-field>
+
+    <ng-container *ngIf="entityForm.get('entity')?.value == 1">
+
+      <p>Tipo de tarjeta</p>
+      <mat-form-field appearance="outline">
+        <mat-select formControlName="type">
+          <mat-option [value]="1">Debito</mat-option>
+          <mat-option [value]="2">Credito</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <ng-container *ngIf="entityForm.get('type')?.value == 2">
+        <p>Fecha de corte</p>
+        <mat-form-field appearance="outline">
+          <mat-label>Fecha de corte</mat-label>
+          <input formControlName="statementDate" matInput [matDatepicker]="pickerStatementDate">
+          <mat-datepicker-toggle matIconSuffix [for]="pickerStatementDate"></mat-datepicker-toggle>
+          <mat-datepicker #pickerStatementDate></mat-datepicker>
+        </mat-form-field>
+
+        <p>Fecha de pago</p>
+        <mat-form-field appearance="outline">
+          <mat-label>Fecha de pago</mat-label>
+          <input formControlName="dueDate" matInput [matDatepicker]="picker">
+          <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+      </ng-container>
+
+    </ng-container>
+
+  </form>
+
+  <section class="actions-container">
+    <button (click)="handleBackAction()" class="button-cancel">Cancelar</button>
+    <button (click)="handleSubmit()" class="button-save">Guardar</button>
+  </section>
+
+</section>

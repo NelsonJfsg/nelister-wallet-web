@@ -1,0 +1,51 @@
+<section class="main-container">
+
+  <section class="header-container">
+    <button (click)="handleBackAction()" class="back-button">
+      <mat-icon>arrow_back</mat-icon>
+    </button>
+    <h4>Nuevo Ingreso</h4>
+  </section>
+
+  <form class="form-container" [formGroup]="incomeForm">
+    <p>Titulo</p>
+    <mat-form-field appearance="outline">
+      <mat-label>title</mat-label>
+      <input formControlName="title" matInput placeholder="Titulo">
+    </mat-form-field>
+  
+    <p>Categoria</p>
+    <mat-form-field appearance="outline">
+      <mat-label>Categoria</mat-label>
+      <input formControlName="category" matInput placeholder="Titulo">
+    </mat-form-field>
+  
+    <p>Fecha de ingreso</p>
+    <mat-form-field appearance="outline">
+      <mat-label>Fecha de ingreso</mat-label>
+      <input formControlName="date" matInput [matDatepicker]="picker">
+      <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+    <p>Description</p>
+    <mat-form-field appearance="outline">
+      <mat-label>Descripcion</mat-label>
+      <textarea formControlName="description" matInput placeholder="Titulo"></textarea>
+    </mat-form-field>
+    
+    <p>Valor del ingreso</p>
+    <mat-form-field appearance="outline">
+      <mat-label>Valor del ingreso</mat-label>
+      <input formControlName="amount" matInput placeholder="Titulo">
+      <span matTextPrefix>$&nbsp;</span>
+      <span matTextSuffix>.00</span>
+    </mat-form-field>
+  </form>
+
+  <section class="actions-container">
+    <button (click)="handleBackAction()" class="button-cancel">Cancelar</button>
+    <button (click)="handleSubmit()" class="button-save">Guardar</button>
+  </section>
+
+</section>
