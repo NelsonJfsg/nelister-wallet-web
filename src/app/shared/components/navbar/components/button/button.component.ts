@@ -10,7 +10,7 @@ import { Button } from '../../interfaces/button.model';
 export class ButtonComponent { 
 
   @Input() button : Button = {} as Button;
-
+  
   @Output() menuItem = new EventEmitter();
 
   

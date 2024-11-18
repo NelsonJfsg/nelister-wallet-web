@@ -42,7 +42,7 @@ const buttons = [
   { 
     id : 6, 
     isActive : false, 
-    title: 'Entidades', 
+    title: 'Catalogos', 
     iconName: 'account_balance', 
     route : '/entities'
   },
