@@ -1,0 +1,16 @@
+<form class="main-container" [formGroup]="loginForm" >
+
+  <h2>Nelister - Wallet</h2>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Username</mat-label>
+    <input matInput formControlName="email" placeholder="email" name="email">
+  </mat-form-field>
+  
+  <mat-form-field appearance="outline">
+    <mat-label>Password</mat-label>
+    <input matInput formControlName="password" placeholder="password" name="password">
+  </mat-form-field>
+
+  <button mat-button (click)="login()">Login</button>
+</form>

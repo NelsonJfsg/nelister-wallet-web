@@ -2,6 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Button } from '../../interfaces/button.model';
 import { NavigationEnd, Router } from '@angular/router';
 import { filter, Subscription } from 'rxjs';
+import { AuthService } from '../../../../../modules/auth/services/auth.service';
 
 const buttons = [
   { 
@@ -9,42 +10,42 @@ const buttons = [
     isActive : false, 
     title: 'Inicio', 
     iconName: 'home', 
-    route : '/home'
+    route : '/wallet/home'
   },
   { 
     id : 2, 
     isActive : false, 
     title: 'Dashboard', 
     iconName: 'space_dashboard', 
-    route : '/dashboard'
+    route : '/wallet/dashboard'
   },
   { 
     id : 3, 
     isActive : false, 
     title: 'Reportes', 
     iconName: 'file_copy', 
-    route : '/reports'
+    route : '/wallet/reports'
   },
   { 
     id : 4, 
     isActive : false, 
     title: 'Ingresos', 
     iconName: 'account_balance_wallet', 
-    route : '/incomes'
+    route : '/wallet/incomes'
   },
   { 
     id : 5, 
     isActive : false, 
     title: 'Gastos', 
     iconName: 'payments', 
-    route : '/expenses'
+    route : '/wallet/expenses'
   },
   { 
     id : 6, 
     isActive : false, 
     title: 'Catalogos', 
     iconName: 'account_balance', 
-    route : '/entities'
+    route : '/wallet/entities'
   },
 ];
 
@@ -60,6 +61,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
   private routerSubscription: Subscription = new Subscription();
 
   constructor(
+    private authService: AuthService,
     private router: Router
   ) {
     this.routerSubscription = this.getUrlAndSetActiveButton();
@@ -86,5 +88,10 @@ export class NavbarComponent implements OnInit, OnDestroy {
   private setActiveButton(url: string): void {
     this.buttons.forEach(button => button.isActive = button.route === url);
   }
+
+  onLogout() {
+    this.authService.logout();    
+  }
+    
 
 }

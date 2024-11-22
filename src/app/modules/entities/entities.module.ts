@@ -15,6 +15,8 @@ import { SharedModule } from '../../shared/shared.module';
 import { ModEntityPageComponent } from './mod/pages/mod-entity-page/mod-entity-page.component';
 import { provideNativeDateAdapter } from '@angular/material/core';
 import { MatSelectModule } from '@angular/material/select';
+import { HttpClientModule } from '@angular/common/http';
+import { EntitiesService } from './services/entities.service';
 
 
 @NgModule({
@@ -37,14 +39,16 @@ import { MatSelectModule } from '@angular/material/select';
 
     MatInputModule,
     MatIconModule,
-    MatSelectModule
+    MatSelectModule,
+    HttpClientModule,
   ],
   exports: [
     EntitiesPageComponent,
     ModEntityPageComponent
   ],
   providers: [
-    provideNativeDateAdapter()
+    provideNativeDateAdapter(),
+    EntitiesService
   ],
 })
 export class EntitiesModule { }
