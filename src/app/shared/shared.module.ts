@@ -7,6 +7,7 @@ import { ButtonComponent } from './components/navbar/components/button/button.co
 import { ProfileComponent } from './components/navbar/components/profile/profile.component';
 import { MainLayoutComponent } from './layouts/main-layout/main-layout.component';
 import { SharedButtonComponent } from './components/shared-button/shared-button.component';
+import { AuthLayoutComponent } from './layouts/auth-layout/auth-layout.component';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { SharedButtonComponent } from './components/shared-button/shared-button.
     ButtonComponent,
     ProfileComponent,
     MainLayoutComponent,
-    SharedButtonComponent
+    SharedButtonComponent,
+    AuthLayoutComponent
   ],
   imports: [
     CommonModule,
@@ -24,7 +26,8 @@ import { SharedButtonComponent } from './components/shared-button/shared-button.
   exports : [
     NavbarComponent,
     MainLayoutComponent,
-    SharedButtonComponent
+    SharedButtonComponent,
+    AuthLayoutComponent
   ]
 })
 export class SharedModule { }
