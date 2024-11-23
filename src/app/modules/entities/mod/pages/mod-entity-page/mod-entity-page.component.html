@@ -11,14 +11,14 @@
 
     <p>Entidad</p>
     <mat-form-field appearance="outline">
-      <mat-select formControlName="entity">
+      <mat-select (selectionChange)="onHandleDiferentFinancialType()" formControlName="financialType">
         <mat-option *ngFor="let option of entityOptions" [value]="option.id">
           {{ option.title }}
         </mat-option>
       </mat-select>
     </mat-form-field>
 
-    <p>{{entityForm.get('entity')?.value == 3 ? 'Nombre' : 'Titulo'}}</p>
+    <p>{{entityForm.get('financialType')?.value == 3 ? 'Nombre' : 'Titulo'}}</p>
     <mat-form-field appearance="outline">
       <mat-label>Titulo</mat-label>
       <input formControlName="title" matInput placeholder="Titulo">
@@ -30,11 +30,11 @@
       <input formControlName="description" matInput placeholder="Titulo">
     </mat-form-field>
 
-    <ng-container *ngIf="entityForm.get('entity')?.value == 1">
+    <ng-container *ngIf="entityForm.get('financialType')?.value == 1">
 
       <p>Tipo de tarjeta</p>
       <mat-form-field appearance="outline">
-        <mat-select formControlName="type">
+        <mat-select (selectionChange)="onHandleDiferentCardType()" formControlName="type">
           <mat-option [value]="1">Debito</mat-option>
           <mat-option [value]="2">Credito</mat-option>
         </mat-select>

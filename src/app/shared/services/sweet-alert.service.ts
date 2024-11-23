@@ -24,4 +24,15 @@ export class SweetAlertService {
     });
   }
 
+  public async showWarningAlert(title : string, description : string) : Promise<any>{
+    return Swal.fire({
+      icon: 'warning',
+      title: title,
+      text: description,
+      showCancelButton: true,
+      confirmButtonText: 'Okay',
+      cancelButtonText: 'Cancel'
+    });
+  }
+
 }
