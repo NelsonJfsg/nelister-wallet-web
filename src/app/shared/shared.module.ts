@@ -8,6 +8,9 @@ import { ProfileComponent } from './components/navbar/components/profile/profile
 import { MainLayoutComponent } from './layouts/main-layout/main-layout.component';
 import { SharedButtonComponent } from './components/shared-button/shared-button.component';
 import { AuthLayoutComponent } from './layouts/auth-layout/auth-layout.component';
+import { SweetAlertService } from './services/sweet-alert.service';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
 
 
 @NgModule({
@@ -21,13 +24,20 @@ import { AuthLayoutComponent } from './layouts/auth-layout/auth-layout.component
   ],
   imports: [
     CommonModule,
-    SharedRoutingModule
+    SharedRoutingModule,
+
+    // * Material
+    MatButtonModule,
+    MatIconModule
   ],
   exports : [
     NavbarComponent,
     MainLayoutComponent,
     SharedButtonComponent,
     AuthLayoutComponent
+  ],
+  providers : [
+    SweetAlertService
   ]
 })
 export class SharedModule { }

@@ -5,6 +5,7 @@ import { UserSession } from '../../../shared/interfaces/user-session.model';
 import { Observable } from 'rxjs';
 import { JwtService } from '../../../core/services/jwt.service';
 import { Router } from '@angular/router';
+import { SweetAlertService } from '../../../shared/services/sweet-alert.service';
 
 const routes = {
   auth : 'auth',
@@ -19,7 +20,8 @@ export class AuthService {
   constructor(
     private http : HttpClient,
     private jwtService : JwtService,
-    private router : Router
+    private router : Router,
+    private sweetAlertService : SweetAlertService
   ) { }
 
   public login (user : User) : Observable<UserSession>{
@@ -28,6 +30,7 @@ export class AuthService {
   
   public logout() : void {
     this.jwtService.destroyToken();
+    this.sweetAlertService.showSuccessAlert('Sesión cerrada', 'Hasta luego');
     this.router.navigate(['/auth']);
   }
 
