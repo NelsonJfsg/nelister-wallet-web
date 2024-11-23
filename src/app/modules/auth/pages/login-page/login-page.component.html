@@ -11,6 +11,7 @@
     <mat-label>Contraseña</mat-label>
     <input matInput formControlName="password" [type]="isHidden ? 'password' : 'text'" />
     <button
+      type="button"
       mat-icon-button
       matSuffix
       (click)="hidePassword($event)"
