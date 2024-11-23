@@ -3,14 +3,21 @@
   <h2>Nelister - Wallet</h2>
 
   <mat-form-field appearance="outline">
-    <mat-label>Username</mat-label>
-    <input matInput formControlName="email" placeholder="email" name="email">
+    <mat-label>Correo electronico</mat-label>
+    <input matInput formControlName="email" name="email">
   </mat-form-field>
   
   <mat-form-field appearance="outline">
-    <mat-label>Password</mat-label>
-    <input matInput formControlName="password" placeholder="password" name="password">
+    <mat-label>Contraseña</mat-label>
+    <input matInput formControlName="password" [type]="isHidden ? 'password' : 'text'" />
+    <button
+      mat-icon-button
+      matSuffix
+      (click)="hidePassword($event)"
+    >
+      <mat-icon>{{isHidden ? 'visibility_off' : 'visibility'}}</mat-icon>
+    </button>
   </mat-form-field>
 
-  <button mat-button (click)="login()">Login</button>
+  <button type="submit" mat-button (click)="login()">Login</button>
 </form>
