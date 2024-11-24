@@ -5,7 +5,7 @@
   height: calc(100vh - 20px);
   border-radius: 10px;
   width: 100%;
-  transition: width 0.3s ease, height 0.3s ease; /* Add transition */
+  transition: width 0.3s ease, height 0.3s ease; 
 }
 
 .nav-container-closed {
@@ -15,10 +15,8 @@
   height: calc(100vh - 20px);
   border-radius: 10px;
   width: 90%;
-  transition: width 0.3s ease, height 0.3s ease; /* Add transition */
+  transition: width 0.3s ease, height 0.3s ease; 
 }
-
-
 
 .menu-title-container{
   width: 100%;
@@ -62,6 +60,7 @@ h3{
   margin-top: auto;
   margin-bottom: 12px;
 }
+
 @media (max-width: 960px) {
   .nav-container {
     width: 100%;
@@ -76,12 +75,3 @@ h3{
     font-size: 18px;
   }
 }
-
-/* .nav-container-close {
-  display: flex;
-  background: #f31343;
-  flex-direction: column;
-  height: calc(100vh - 20px);
-  border-radius: 10px;
-  width: 50%;
-} */

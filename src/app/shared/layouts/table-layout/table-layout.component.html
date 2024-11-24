@@ -1,0 +1,16 @@
+<section>
+
+  <div class="filter-container">
+    <h5><b>{{ title }}</b></h5>
+    <!-- <shared-button
+      [button]="button"
+      (click)="handleNew()"
+    /> -->
+  </div>
+
+  <!-- Table -->
+  <section class="table-container">
+    <ng-content class="form-container" select="[table]"></ng-content>
+  </section>
+  
+</section>

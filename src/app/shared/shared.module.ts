@@ -14,6 +14,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { ModHeaderComponent } from './components/mod-header/mod-header.component';
 import { ModalLayoutComponent } from './layouts/modal-layout/modal-layout.component';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { TableLayoutComponent } from './layouts/table-layout/table-layout.component';
 
 
 @NgModule({
@@ -23,6 +24,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     MainLayoutComponent,
     AuthLayoutComponent,
     ModalLayoutComponent,
+    TableLayoutComponent,
     
     // * Components
     NavbarComponent,
@@ -55,6 +57,8 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     ProfileComponent,
     SharedButtonComponent,
     ModHeaderComponent,
+    TableLayoutComponent,
+
   ],
   providers : [
     SweetAlertService

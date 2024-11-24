@@ -54,13 +54,11 @@ const buttons = [
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.css',
 })
-export class NavbarComponent implements OnInit, OnDestroy {
+export class NavbarComponent implements OnDestroy {
 
-  public isSidebarOpen : boolean = true;
-  
-  public buttons : Button[] = buttons;
-  
-  private routerSubscription: Subscription = new Subscription();
+  public isSidebarOpen : boolean = true; // * Controls the sidebar status
+  public buttons : Button[] = buttons; // * Buttons to navigate
+  private routerSubscription: Subscription = new Subscription(); // * Subscription to the router events
 
   constructor(
     private authService: AuthService,
@@ -69,17 +67,13 @@ export class NavbarComponent implements OnInit, OnDestroy {
     this.routerSubscription = this.getUrlAndSetActiveButton();
   }
 
-  ngOnInit(): void {
-  }
-
   ngOnDestroy(): void {
-    console.log('NavbarComponent ngOnDestroy');
     if (this.routerSubscription) {
       this.routerSubscription.unsubscribe();
     }
   }
 
-  private getUrlAndSetActiveButton() : Subscription {
+  private getUrlAndSetActiveButton () : Subscription {
     return this.router.events.pipe(
       filter(event => event instanceof NavigationEnd)
     ).subscribe((event: NavigationEnd) => {
@@ -87,17 +81,18 @@ export class NavbarComponent implements OnInit, OnDestroy {
     });
   }
 
-  private setActiveButton(url: string): void {
-    this.buttons.forEach(button => button.isActive = button.route === url);
-  }
-
-  onLogout() {
+  // * HTML Events
+  public onLogout () : void {
     this.authService.logout();    
   }
 
-  changeSidebarStatus() {
+  public changeSidebarStatus () : void {
     this.isSidebarOpen = !this.isSidebarOpen;
   }
     
+  // * Private methods
+  private setActiveButton(url: string): void {
+    this.buttons.forEach(button => button.isActive = button.route === url);
+  }
 
 }
