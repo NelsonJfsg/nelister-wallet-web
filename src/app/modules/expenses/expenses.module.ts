@@ -12,30 +12,49 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatTableModule } from '@angular/material/table';
+import { ModExpensesPageComponent } from './mod/pages/mod-expenses-page/mod-expenses-page.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSelectModule } from '@angular/material/select';
+import { provideNativeDateAdapter } from '@angular/material/core';
 
 
 @NgModule({
   declarations: [
-      ExpensesPageComponent
+    ExpensesPageComponent,
+    ModExpensesPageComponent
   ],
   imports: [
+
+    // * Angular
     CommonModule,
     ExpensesRoutingModule,
-    SharedModule,
+
+    // * Material angular
     MatTableModule,
     MatPaginatorModule,
     MatDialogModule,
     MatButtonModule,
     MatDatepickerModule,
-    // Forms
+    MatInputModule,
+    MatIconModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatSelectModule,
+
+    // * Shared
+    SharedModule,
+
+    // * Forms
     FormsModule,
     ReactiveFormsModule,
 
-    MatInputModule,
-    MatIconModule,
   ],
   exports: [
-    ExpensesPageComponent
-  ]
+    ExpensesPageComponent,
+    ModExpensesPageComponent
+  ],
+  providers: [
+    provideNativeDateAdapter()
+  ],
 })
 export class ExpensesModule { }

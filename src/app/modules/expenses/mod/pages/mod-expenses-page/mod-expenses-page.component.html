@@ -1,0 +1,56 @@
+<shared-modal-layout
+  [action]="handleBack"
+  title="Registrar gasto"
+  [handleSubmit]="handleSubmit"
+  [handleCancel]="handleCancel"
+>
+  
+  <section [formGroup]="expenseForm" modal-body>
+
+    <p>Titulo</p>
+    <mat-form-field appearance="outline">
+      <mat-label></mat-label>
+      <input formControlName="title" matInput placeholder="Concepto">
+    </mat-form-field>
+    
+    <p>Descripcion</p>
+    <mat-form-field appearance="outline">
+      <mat-label></mat-label>
+      <input formControlName="description" matInput placeholder="Concepto">
+    </mat-form-field>
+
+    <p>Fecha de egreso</p>
+      <mat-form-field appearance="outline">
+        <mat-label>Fecha de egreso</mat-label>
+        <input formControlName="expenseDate" matInput [matDatepicker]="pickerStatementDate">
+        <mat-datepicker-toggle matIconSuffix [for]="pickerStatementDate"></mat-datepicker-toggle>
+        <mat-datepicker #pickerStatementDate></mat-datepicker>
+      </mat-form-field>
+
+    <p>Categoria</p>
+    <mat-form-field appearance="outline">
+      <mat-select formControlName="categoryId">
+        <mat-option *ngFor="let category of categories" [value]="category.id">
+          {{category.title}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <p>Fuente</p>
+    <mat-form-field appearance="outline">
+      <mat-select formControlName="financialEntityId">
+        <mat-option *ngFor="let financialEntity of financialEntities" [value]="financialEntity.id">
+          {{financialEntity.title}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <p>Monto</p>
+    <mat-form-field appearance="outline">
+      <mat-label>Monto</mat-label>
+      <input formControlName="amount" matInput placeholder="Monto">
+    </mat-form-field>
+
+  </section>
+  
+</shared-modal-layout>

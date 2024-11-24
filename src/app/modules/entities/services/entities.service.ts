@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { FinancialType } from '../mod/interfaces/financial-type.model';
 import { FinancialEntity } from '../mod/interfaces/financial-entity.mode';
 
@@ -13,9 +13,20 @@ const route = {
 })
 export class EntitiesService {
   
+  private financialEntitiesSubject = new BehaviorSubject<FinancialEntity[]>([]);
+  financialEntities$ = this.financialEntitiesSubject.asObservable();
+
+  public refreshFinancialEntities() {
+    this.getFinancial().subscribe(entities => {
+      this.financialEntitiesSubject.next(entities);
+    });
+  }
+
   constructor(
     private http: HttpClient
-  ) { }
+  ) { 
+    this.refreshFinancialEntities();
+  }
 
   saveFinancialEntity (data : any) : Observable<FinancialEntity> {
     return this.http.post<FinancialEntity>(`${route.financial}/add-financial-entity`, data);
