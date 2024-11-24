@@ -1,6 +1,8 @@
-<section [routerLink]="button.route" class="buttons-container">
-  <div [class]="button.isActive ? 'button-container-selected' : 'button-container'">
-    <span class="material-icons">{{button.iconName}}</span>
-    <a  class="button">{{button.title}}</a>
+<section [routerLink]="button.route" class="buttons-container" aria-label="alsdlasdk">
+  <div [class]="button.isActive ? 'button-container-selected' : 'button-container'" [style]="!isSidebarOpen ? 'justify-content : center' : ''"
+  matTooltip="{{button.title}}" matTooltipDisabled="{{isSidebarOpen}}"
+  >
+    <span class="material-icons" [style]="!isSidebarOpen ? 'margin-left : 0' : ''" >{{button.iconName}}</span>
+    <a *ngIf="isSidebarOpen" class="button">{{button.title}}</a>
   </div>
 </section>

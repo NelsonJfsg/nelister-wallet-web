@@ -11,10 +11,10 @@
 }
 
 .material-icons{
-  font-size: 20px;
   color : white;
   margin-left: 10px;
 }
+
 .button-container{
   align-content: center;
   display: flex;
@@ -51,4 +51,11 @@
   font-size: 16px;
   cursor: pointer;
   margin-left: 10px;
+}
+.mat-tooltip {
+  background-color: #333;
+  color: white;
+  font-size: 14px;
+  border-radius: 4px;
+  padding: 8px;
 }

@@ -10,6 +10,7 @@ import { Button } from '../../interfaces/button.model';
 export class ButtonComponent { 
 
   @Input() button : Button = {} as Button;
+  @Input() isSidebarOpen : boolean = true;
   
   @Output() menuItem = new EventEmitter();
 

@@ -6,8 +6,8 @@
   </div>
 
   <div class="profile-information-container">
-    <p><b>{{userSession.nickName}}</b></p>
-    <p>{{userSession.email}}</p>
+    <p *ngIf="isSidebarOpen"><b>{{userSession.nickName}}</b></p>
+    <p *ngIf="isSidebarOpen">{{userSession.email}}</p>
   </div>
 
 </div>

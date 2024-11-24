@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { JwtService } from '../../../../../core/services/jwt.service';
 import { UserSession } from '../../../../interfaces/user-session.model';
 
@@ -11,6 +11,8 @@ import { UserSession } from '../../../../interfaces/user-session.model';
 export class ProfileComponent { 
 
   userSession : UserSession = {} as UserSession;
+  @Input() isSidebarOpen : boolean = true;
+
 
   constructor(
     private jwtService: JwtService
