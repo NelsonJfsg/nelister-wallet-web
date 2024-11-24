@@ -13,6 +13,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { ModHeaderComponent } from './components/mod-header/mod-header.component';
 import { ModalLayoutComponent } from './layouts/modal-layout/modal-layout.component';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 
 @NgModule({
@@ -38,6 +39,7 @@ import { ModalLayoutComponent } from './layouts/modal-layout/modal-layout.compon
     // * Material
     MatButtonModule,
     MatIconModule,
+    MatTooltipModule,
 
   ],
   exports : [

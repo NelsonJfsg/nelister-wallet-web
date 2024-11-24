@@ -55,6 +55,8 @@ const buttons = [
   styleUrl: './navbar.component.css',
 })
 export class NavbarComponent implements OnInit, OnDestroy {
+
+  public isSidebarOpen : boolean = true;
   
   public buttons : Button[] = buttons;
   
@@ -91,6 +93,10 @@ export class NavbarComponent implements OnInit, OnDestroy {
 
   onLogout() {
     this.authService.logout();    
+  }
+
+  changeSidebarStatus() {
+    this.isSidebarOpen = !this.isSidebarOpen;
   }
     
 

@@ -1,27 +1,36 @@
-<nav class="nav-container">
+<nav [ngClass]="{'nav-container': isSidebarOpen, 'nav-container-closed': !isSidebarOpen}">
   
-  <section class="menu-title-container">
-    <h3>Nelister</h3>
-
-    <button (click)="onLogout()" mat-mini-fab aria-label="Example icon button with a menu icon">
-      <mat-icon>logout</mat-icon>
-    </button>
-    
-  </section>
+    <section class="menu-title-container">
+      <h3 *ngIf="isSidebarOpen">Nelister</h3>
   
-  <!-- General information maybe :D -->
-  <section class="search-container">
+      <section class="actions-container">
+        <button (click)="onLogout()" *ngIf="isSidebarOpen" mat-mini-fab aria-label="Example icon button with a menu icon">
+          <mat-icon>logout</mat-icon>
+        </button>
+
+        <button (click)="changeSidebarStatus()" [style]="!isSidebarOpen ? 'margin-bottom : 12px' : ''" mat-mini-fab aria-label="Example icon button with a menu icon">
+          <mat-icon>menu</mat-icon>
+        </button>
+      </section>
+      
+    </section>
     
-  </section>
-
-  <ng-container *ngFor="let button of buttons">
-    <navbar-button
-      [button]="button"
-    />
-  </ng-container>
-
-  <section class="profile-container">
-    <navbar-profile />
-  </section>
+    <!-- General information maybe :D -->
+    <section class="search-container">
+      
+    </section>
+  
+    <ng-container *ngFor="let button of buttons">
+      <navbar-button
+        [button]="button"
+        [isSidebarOpen]="isSidebarOpen"
+      />
+    </ng-container>
+  
+    <section class="profile-container">
+      <navbar-profile 
+        [isSidebarOpen]="isSidebarOpen"
+      />
+    </section>
 
 </nav>
