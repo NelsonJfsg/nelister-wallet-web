@@ -1,0 +1,17 @@
+<section class="main-container">
+
+  <shared-mod-header
+    [action]="action"
+    [title]="title"
+  />
+
+  <section class="form-container">
+    <ng-content class="form-container" select="[modal-body]"></ng-content>
+  </section>
+
+  <section class="actions-container">
+    <button (click)="handleCancel()" class="button-cancel">Cancelar</button>
+    <button (click)="handleSubmit()" class="button-save">Guardar</button>
+  </section>
+
+</section>

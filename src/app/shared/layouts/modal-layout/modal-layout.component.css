@@ -1,0 +1,74 @@
+.main-container{
+  padding: 25px;
+}
+
+.header-container{
+  display: flex;
+  align-items: center;
+
+  h4{
+    margin: 0;
+    margin-left: 14px;
+  }
+
+  .back-button{
+    background: transparent !important;
+    border: none !important;
+    cursor: pointer;
+  }
+
+}
+
+.form-container{
+  
+  margin-top: 20px;
+
+  ::ng-deep mat-form-field{
+    width: 100% !important;
+  }
+
+  ::ng-deep p{
+    font-size: 20px !important;
+    font-weight: 600 !important;
+    color: #212121 !important;
+  }
+
+
+}
+
+.actions-container{
+  display: flex;
+  justify-content: end;
+
+  .button-cancel{
+    margin-left: 10px;
+    align-content: center;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    color: #212121;
+    height: 35px;
+    border: 1px solid #818181;
+    border-radius: 5px;
+    margin-top: 10px;
+    background: white;
+    cursor: pointer;
+    padding: 0 14px;
+  }
+
+  .button-save{
+    margin-left: 10px;
+    align-content: center;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    color: white;
+    height: 35px;
+    border: none;
+    border-radius: 5px;
+    margin-top: 10px;
+    background: #023EC3;
+    cursor: pointer;
+    padding: 0 14px;
+  }
+}

@@ -11,16 +11,25 @@ import { AuthLayoutComponent } from './layouts/auth-layout/auth-layout.component
 import { SweetAlertService } from './services/sweet-alert.service';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
+import { ModHeaderComponent } from './components/mod-header/mod-header.component';
+import { ModalLayoutComponent } from './layouts/modal-layout/modal-layout.component';
 
 
 @NgModule({
   declarations: [
+    
+    // * Layouts
+    MainLayoutComponent,
+    AuthLayoutComponent,
+    ModalLayoutComponent,
+    
+    // * Components
     NavbarComponent,
     ButtonComponent,
     ProfileComponent,
-    MainLayoutComponent,
     SharedButtonComponent,
-    AuthLayoutComponent
+    ModHeaderComponent,
+    
   ],
   imports: [
     CommonModule,
@@ -28,13 +37,22 @@ import { MatButtonModule } from '@angular/material/button';
 
     // * Material
     MatButtonModule,
-    MatIconModule
+    MatIconModule,
+
   ],
   exports : [
-    NavbarComponent,
+
+    // * Layouts
     MainLayoutComponent,
+    AuthLayoutComponent,
+    ModalLayoutComponent,
+
+    // * Components
+    NavbarComponent,
+    ButtonComponent,
+    ProfileComponent,
     SharedButtonComponent,
-    AuthLayoutComponent
+    ModHeaderComponent,
   ],
   providers : [
     SweetAlertService
