@@ -13,6 +13,7 @@ import { Expenses } from '../../interfaces/expenses-table.model';
 import { totalSum } from '../../../../shared/utils/functions/totalSum';
 import { Expense } from '../../interfaces/expense.model';
 
+
 export interface Income {
   title : string;
   category : string;
@@ -46,6 +47,7 @@ const ELEMENT_DATA: Income[] = [
   styleUrl: './expenses-page.component.css',
 })
 export class ExpensesPageComponent implements OnInit{
+  
   total : number = 0;
 
 
@@ -88,6 +90,7 @@ export class ExpensesPageComponent implements OnInit{
     this.modExpensesService.getExpenses().subscribe(expenses => {
       this.total = this.totalSum(expenses);
       this.dataSource = expenses;
+      
     });
 
   }
@@ -140,6 +143,7 @@ export class ExpensesPageComponent implements OnInit{
     });
   }
 
+  
   
   public onHandleUpdate(expense : Expense) {
     let dialogRef = this.dialog.open(ModExpensesPageComponent, {

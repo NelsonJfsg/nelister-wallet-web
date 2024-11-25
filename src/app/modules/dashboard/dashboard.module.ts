@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { DashboardRoutingModule } from './dashboard-routing.module';
 import { DashboardPageComponent } from './pages/dashboard-page/dashboard-page.component';
+import { FullCalendarModule } from '@fullcalendar/angular';
 
 
 @NgModule({
@@ -11,6 +12,7 @@ import { DashboardPageComponent } from './pages/dashboard-page/dashboard-page.co
   ],
   imports: [
     CommonModule,
+    FullCalendarModule,
     DashboardRoutingModule
   ],
   exports : [

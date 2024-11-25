@@ -10,6 +10,8 @@ import { Category } from '../../../../entities/interfaces/category.model';
 import { SweetAlertService } from '../../../../../shared/services/sweet-alert.service';
 import { FormsUtilsService } from '../../../../../shared/utils/forms-utils.service';
 
+
+
 @Component({
   selector: 'mod-expenses-page',
   templateUrl: './mod-expenses-page.component.html',
@@ -62,6 +64,8 @@ export class ModExpensesPageComponent {
       amount : [null, [Validators.required]],
     });
   }
+
+  
 
   public handleFormInputs (formControlName : string, index ?: number) {
 

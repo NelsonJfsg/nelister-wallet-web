@@ -18,6 +18,8 @@ import { MatSelectModule } from '@angular/material/select';
 import { provideNativeDateAdapter } from '@angular/material/core';
 
 
+import { FullCalendarModule } from '@fullcalendar/angular';
+
 @NgModule({
   declarations: [
     ExpensesPageComponent,
@@ -40,6 +42,9 @@ import { provideNativeDateAdapter } from '@angular/material/core';
     MatFormFieldModule,
     MatInputModule,
     MatSelectModule,
+
+    // * Fullcalendar
+    FullCalendarModule,
 
     // * Shared
     SharedModule,
