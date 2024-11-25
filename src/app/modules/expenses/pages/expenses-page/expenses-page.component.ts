@@ -10,6 +10,8 @@ import { CategoriesService } from '../../../../shared/services/categories.servic
 import { Category } from '../../../entities/interfaces/category.model';
 import { ModExpensesService } from '../../services/mod-expenses.service';
 import { Expenses } from '../../interfaces/expenses-table.model';
+import { totalSum } from '../../../../shared/utils/functions/totalSum';
+import { Expense } from '../../interfaces/expense.model';
 
 export interface Income {
   title : string;
@@ -44,6 +46,8 @@ const ELEMENT_DATA: Income[] = [
   styleUrl: './expenses-page.component.css',
 })
 export class ExpensesPageComponent implements OnInit{
+  total : number = 0;
+
 
   // * Catalogues
   public financialEntities : FinancialEntity[] = [];
@@ -82,10 +86,13 @@ export class ExpensesPageComponent implements OnInit{
     });
 
     this.modExpensesService.getExpenses().subscribe(expenses => {
-      console.log('expenses', expenses);
+      this.total = this.totalSum(expenses);
       this.dataSource = expenses;
     });
 
+  }
+  totalSum(expenses: Expenses[]) : number {
+    return totalSum(expenses.map(expense => parseFloat(expense.amount)));
   }
 
 
@@ -97,7 +104,7 @@ export class ExpensesPageComponent implements OnInit{
     route : '/incomes/add'
   };
 
-  handleNewExpense() {
+  handleNewExpense = () : void => {
     let dialogRef = this.dialog.open(ModExpensesPageComponent, {
       width: '90%',
       height: '80%',
@@ -110,7 +117,52 @@ export class ExpensesPageComponent implements OnInit{
 
       }
     });
+
+    dialogRef.afterClosed().subscribe((isSaved : boolean) => {
+      if(isSaved){
+        this.modExpensesService.getExpenses().subscribe(expenses => {
+          this.dataSource = expenses;
+        });
+      }else{
+        console.log('No se guardo');
+      }
+    });
   } 
-    
+
+  // * Cruds
+  public onHandleDelete(id : number) {
+    this.modExpensesService.deleteExpense(id).subscribe((res : boolean) => {
+      if(res){
+        this.modExpensesService.getExpenses().subscribe(expenses => {
+          this.dataSource = expenses;
+        });
+      }
+    });
+  }
+
+  
+  public onHandleUpdate(expense : Expense) {
+    let dialogRef = this.dialog.open(ModExpensesPageComponent, {
+      width: '90%',
+      height: '80%',
+      data : {
+        expenseData : expense,
+        catalogues : {
+          financialEntities : this.financialEntities,
+          categories : this.categories
+        }
+      }
+    });
+
+    dialogRef.afterClosed().subscribe((isSaved : boolean) => {
+      if(isSaved){
+        this.modExpensesService.getExpenses().subscribe(expenses => {
+          this.dataSource = expenses;
+        });
+      }else{
+        console.log('No se guardo');
+      }
+    });
+  }
 
 }

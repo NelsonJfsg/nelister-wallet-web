@@ -35,6 +35,7 @@ const ELEMENT_DATA: Income[] = [
   styleUrl: './incomes-page.component.css',
 })
 export class IncomesPageComponent {
+  
   public button : Button = {
     id : 1,
     iconName : 'add',

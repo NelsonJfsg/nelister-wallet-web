@@ -64,6 +64,27 @@
               ],
               "outputHashing": "all"
             },
+            "local": {
+              "fileReplacements": [
+                {
+                  "replace": "src/app/core/env/env.ts",
+                  "with":    "src/app/core/env/environment.local.ts"
+                }
+              ],
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kB",
+                  "maximumError": "1MB"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kB",
+                  "maximumError": "4kB"
+                }
+              ],
+              "outputHashing": "all"
+            },
             "development": {
               "optimization": false,
               "extractLicenses": false,
@@ -80,6 +101,9 @@
             },
             "development": {
               "buildTarget": "nelister-wallet-web:build:development"
+            },
+            "local": {
+              "buildTarget": "nelister-wallet-web:build:local"
             }
           },
           "defaultConfiguration": "development"

@@ -2,15 +2,19 @@
 
   <div class="filter-container">
     <h5><b>{{ title }}</b></h5>
-    <!-- <shared-button
+    <shared-button
       [button]="button"
-      (click)="handleNew()"
-    /> -->
+      [action]="handleAction"
+    />
   </div>
 
   <!-- Table -->
   <section class="table-container">
     <ng-content class="form-container" select="[table]"></ng-content>
+  </section>
+
+  <section class="total-container">
+    <h3>$ {{ total }}</h3>
   </section>
   
 </section>

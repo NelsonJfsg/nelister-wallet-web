@@ -9,14 +9,16 @@
 
     <p>Titulo</p>
     <mat-form-field appearance="outline">
-      <mat-label></mat-label>
-      <input formControlName="title" matInput placeholder="Concepto">
+      <mat-label>Titulo</mat-label>
+      <input (input)="handleFormInputs('title')" 
+      formControlName="title" matInput placeholder="Concepto">
     </mat-form-field>
     
     <p>Descripcion</p>
     <mat-form-field appearance="outline">
-      <mat-label></mat-label>
-      <input formControlName="description" matInput placeholder="Concepto">
+      <mat-label>Descripcion</mat-label>
+      <input (input)="handleFormInputs('description')" 
+      formControlName="description" matInput placeholder="Concepto">
     </mat-form-field>
 
     <p>Fecha de egreso</p>
@@ -47,10 +49,14 @@
 
     <p>Monto</p>
     <mat-form-field appearance="outline">
-      <mat-label>Monto</mat-label>
-      <input formControlName="amount" matInput placeholder="Monto">
-    </mat-form-field>
+      <!-- <mat-label>Monto</mat-label> -->
+      <input (input)="handleFormInputs('amount')" formControlName="amount" 
+        matInput 
+        placeholder="0.00"/>
+      <span matTextPrefix>$&nbsp;</span>
 
+    </mat-form-field>
+    
   </section>
   
 </shared-modal-layout>

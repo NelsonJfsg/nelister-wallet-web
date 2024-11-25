@@ -3,7 +3,7 @@ export interface Expenses {
   title:             string;
   description:       string;
   expenseDate:       Date;
-  amount:            number;
+  amount:            string;
   categoryId:        CategoryID | null;
   financialEntityId: FinancialEntityID | null;
 }
