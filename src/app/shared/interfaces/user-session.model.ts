@@ -1,6 +1,13 @@
 export interface UserSession {
-  id ?: number;
-  email: string;
-  jwt : string;
-  nickName : string;
+  accessToken:  string;
+  refreshToken: string;
+  user:         User;
+}
+
+export interface User {
+  email:         string;
+  userName:      string;
+  firstName:     string;
+  fatherSurname: string;
+  motherSurname: string;
 }

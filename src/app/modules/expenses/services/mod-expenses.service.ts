@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Expense } from '../interfaces/expense.model';
 import { Expenses } from '../interfaces/expenses-table.model';
+import { HttpService } from '../../../core/services/http.service';
 
 @Injectable({
   providedIn: 'root'
@@ -9,15 +10,15 @@ import { Expenses } from '../interfaces/expenses-table.model';
 export class ModExpensesService {
 
   constructor(
-    private http : HttpClient
+    private httpApiService : HttpService
   ) { }
 
   public saveExpense (expense : Expense) {
-    return this.http.post<Expense>('expenses', expense);
+    return this.httpApiService.post<Expense>('expenses', expense);
   }
 
   public getExpenses () {
-    return this.http.get<Expenses[]>('expenses');
+    return this.httpApiService.get<Expenses[]>('expenses');
   }
 
 

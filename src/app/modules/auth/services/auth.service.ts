@@ -6,6 +6,7 @@ import { Observable } from 'rxjs';
 import { JwtService } from '../../../core/services/jwt.service';
 import { Router } from '@angular/router';
 import { SweetAlertService } from '../../../shared/services/sweet-alert.service';
+import { HttpAuthService } from '../../../core/services/http-auth.service';
 
 const routes = {
   auth : 'auth',
@@ -18,14 +19,14 @@ const routes = {
 export class AuthService {
   
   constructor(
-    private http : HttpClient,
+    private httpAuthService : HttpAuthService,
     private jwtService : JwtService,
     private router : Router,
     private sweetAlertService : SweetAlertService
   ) { }
 
   public login (user : User) : Observable<UserSession>{
-    return this.http.post<UserSession>(`${routes.auth}/${routes.login}`, user);
+    return this.httpAuthService.post<UserSession>(`${routes.auth}`, user);
   }
   
   public logout() : void {

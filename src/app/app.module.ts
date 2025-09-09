@@ -7,8 +7,6 @@ import { SharedModule } from './shared/shared.module';
 import { HomeModule } from './modules/home/home.module';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HTTP_INTERCEPTORS } from '@angular/common/http';
-import { HttpApiInterceptor } from './core/interceptors/http-api.interceptor';
 import { AuthModule } from './modules/auth/auth.module';
 
 @NgModule({
@@ -31,12 +29,7 @@ import { AuthModule } from './modules/auth/auth.module';
     AuthModule
   ],
   providers: [
-    provideAnimationsAsync(),
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: HttpApiInterceptor,
-      multi: true,
-    }
+    provideAnimationsAsync()
   ],
   bootstrap: [
     AppComponent
